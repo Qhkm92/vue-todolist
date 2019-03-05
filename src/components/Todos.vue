@@ -15,6 +15,6 @@ export default {
     components: {
         TodoItem //children component
     },
-    props: ["todos"] //props that was passed from app
+    props: ["todos"] //props that was passed from Top level component
 }
 </script>
