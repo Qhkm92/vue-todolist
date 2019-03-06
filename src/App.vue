@@ -1,15 +1,15 @@
 <template>
   <div id="app"> 
     <Header />
-    <AddTodo />
+    <AddTodo v-on:add-todo="addTodo"/>
     <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/> 
   </div>
 </template>
 
 <script>
-import Header from './components/layout/Header'
-import Todos from './components/Todos'
-import AddTodo from './components/AddTodo'
+import Header from './components/layout/Header';
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
 
 export default {
   name: 'app',
@@ -40,8 +40,11 @@ export default {
     }
   },
   methods: {
-    deleteTodo(id){
+    deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+    },
+    addTodo(newTodo) {
+      this.todos = [...this.todos, newTodo];
     }
   }
 }
@@ -71,6 +74,6 @@ body {
 }
 
 .btn:hover {
-  background: #666;
+  background: #666; 
 }
 </style>
